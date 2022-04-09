@@ -1,7 +1,7 @@
 {
   "name": "pitang-trainee-2022-backend",
   "version": "1.0.0",
-  "main": "src/app.js",
+  "main": "src/server.js",
   "repository": "git@github.com:CarolinaAbreu19/pitang-trainee-2022-backend.git",
   "author": "Carolina Abreu <anacarolinaks19@gmail.com>",
   "license": "MIT",
