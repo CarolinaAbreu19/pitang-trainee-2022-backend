@@ -1,4 +1,4 @@
-# Backend - Pitang | Program Trainee 2022
+# Back-end - Pitang | Program Trainee 2022
 
 ## To run this project
 
