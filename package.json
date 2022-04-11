@@ -7,10 +7,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "yarn add express nodemon dotenv date-fns yup",
+    "start": "yarn add express nodemon dotenv date-fns yup cors",
     "dev": "yarn nodemon src/server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "date-fns": "^2.28.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
