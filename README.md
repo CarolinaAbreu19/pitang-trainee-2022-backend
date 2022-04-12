@@ -31,7 +31,6 @@ take the vaccine, build a page to consult the appointments made per day and hour
 
 * Build an API in Node to receive data from the portal.
 * Use yup to validate data in the API.
-* Use yup for data validation
 * IDE is your choice.
 
 ## Rating criteria
