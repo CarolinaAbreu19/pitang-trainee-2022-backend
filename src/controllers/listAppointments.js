@@ -2,15 +2,16 @@ import appointments from "../models/appointmentModel.js";
 
 const listAppointments = async (req, res) => {
     const { filter, value } = req.query;
-
     let list = [];
    
     switch (filter) {
         case 'date': {
             list = await appointments.filter(appointment => appointment.date_appointment === value);
+            break;
         }
         case 'time': {
-            list = await appointments.filter(appointment => appointment.time_appointment === value);
+            list = await appointments.filter(appointment => appointment.time_appointment === parseInt(value));
+            break;
         }
         default:
             list = await appointments;
