@@ -19,12 +19,12 @@ const registerAppointment = async (req, res) => {
     
     const filterDays = await appointments.filter(appointment => appointment.date_appointment === date_appointment);
     if(filterDays.length >= 20) {
-        return res.status(400).json({ message: "No more schedules for this day" });
+        return res.status(400).json({ message: "No more schedules for this day", error: "date_error" });
     }
 
     const filterSchedule = filterDays.filter(appointment => appointment.time_appointment === time_appointment);
     if(filterSchedule.length >= 2) {
-        return res.status(400).json({ message: "No more available appointments for this schedule" });
+        return res.status(400).json({ message: "No more available appointments for this schedule", error: "time_error" });
     }
 
     await appointments.push({
