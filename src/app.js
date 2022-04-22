@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: '*',
-    methods: ['GET', 'POST', 'DELETE']
+    methods: ['GET', 'POST', 'PATCH', 'DELETE']
 }))
 app.use(router);
 
