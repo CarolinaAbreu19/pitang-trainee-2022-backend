@@ -31,7 +31,12 @@ describe('POST /appointment', () => {
             expect(newAppointment.statusCode).toBe(201);
 
             const response = await request(app).get("/appointment");
-            expect(response.body.appointment.length).toBe(1);
+
+            expect(response.body).toHaveProperty("message");
+            expect(response.body).toHaveProperty("appointments");
+
+            expect(response.body.appointments.length).toBe(1);
+
             expect(response.statusCode).toBe(200);
     });
 });
