@@ -9,6 +9,6 @@ app.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'PATCH', 'DELETE']
 }))
-app.use(router);
+app.use('/appointment', router);
 
 export default app;
