@@ -1,10 +1,10 @@
 import { Router } from "express";
-import appointmentSchema from "../config/validations.js";
-import deleteAppointment from "../controllers/deleteAppointment.js";
-import listAppointments from "../controllers/listAppointments.js";
 import makeAppointment from "../controllers/makeAppointment.js";
+import listAppointments from "../controllers/listAppointments.js";
+import deleteAppointment from "../controllers/deleteAppointment.js";
 import registerAppointment from "../controllers/registerAppointment.js";
 import validateBodyMiddleware from "../middlewares/validateBodyMiddleware.js";
+import appointmentSchema from "../utils/validations.js";
 
 const router = Router();
 
