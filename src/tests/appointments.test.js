@@ -280,3 +280,14 @@ describe('GET /appointment', () => {
         expect(filterDate.statusCode).toBe(200);
     });
 });
+
+describe('GET /appointment', () => {
+    test('Filter appointments by time, but there is no results', async () => {
+        const filterDate = await request(app).get('/appointment?filter=time&value=1');        
+        expect(filterDate.body).toHaveProperty("message");
+        expect(filterDate.body).toHaveProperty("appointments");
+        expect(filterDate.body.message).toBe("No results");
+        expect(filterDate.body.appointments.length).toBe(0);
+        expect(filterDate.statusCode).toBe(200);
+    });
+});
