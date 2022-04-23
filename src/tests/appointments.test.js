@@ -220,3 +220,32 @@ describe('POST /appointment', () => {
         expect(response.statusCode).toBe(200);
     });
 });
+
+describe('GET /appointment', () => {
+    test('Filter appointments by date', async () => {
+        const newAppointment = await request(app)
+            .post('/appointment')
+            .send({
+                name: 'jest test',
+                birth_date: '23/04/2022',
+                date_appointment: '24/04/2023',
+                time_appointment: 9
+            });
+
+        const filterDate = await request(app).get('/appointment?filter=date&value=23/04/2023');
+
+        expect(filterDate.body).toHaveProperty("message");
+        expect(filterDate.body).toHaveProperty("appointments");
+        expect(filterDate.body.message).toBe("Appointments listed successfully");
+        expect(filterDate.body.appointments.length).toBe(2);
+        expect(filterDate.statusCode).toBe(200);
+
+        const filterAnotherDate = await request(app).get('/appointment?filter=date&value=24/04/2023');
+
+        expect(filterAnotherDate.body).toHaveProperty("message");
+        expect(filterAnotherDate.body).toHaveProperty("appointments");
+        expect(filterAnotherDate.body.message).toBe("Appointments listed successfully");
+        expect(filterAnotherDate.body.appointments.length).toBe(1);
+        expect(filterAnotherDate.statusCode).toBe(200);
+    });
+});
