@@ -3,6 +3,10 @@ import crypto from "crypto";
 
 const registerAppointment = async (req, res) => {
     const { name, birth_date, date_appointment, time_appointment } = req.body;
+
+    if(time_appointment < 8 || time_appointment > 17 || time_appointment%1 !== 0) {
+        return res.status(400).json({ message: "Invalid time_appointment value" });
+    }
     
     const filterDays = await appointments.filter(appointment => appointment.date_appointment === date_appointment);
     if(filterDays.length >= 20) {
