@@ -8,9 +8,9 @@ import appointmentSchema from "../utils/validations.js";
 
 const router = Router();
 
-router.get('/appointment', listAppointments);
-router.post('/appointment', validateBodyMiddleware(appointmentSchema), registerAppointment);
-router.patch('/appointment/:id', makeAppointment);
-router.delete('/appointment/:id', deleteAppointment);
+router.get('/', listAppointments);
+router.post('/', validateBodyMiddleware(appointmentSchema), registerAppointment);
+router.patch('/:id', makeAppointment);
+router.delete('/:id', deleteAppointment);
 
 export default router;
