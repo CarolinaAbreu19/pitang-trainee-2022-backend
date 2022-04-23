@@ -249,3 +249,23 @@ describe('GET /appointment', () => {
         expect(filterAnotherDate.statusCode).toBe(200);
     });
 });
+
+describe('GET /appointment', () => {
+    test('Filter appointments by date', async () => {
+        const filterDate = await request(app).get('/appointment?filter=time&value=8');
+
+        expect(filterDate.body).toHaveProperty("message");
+        expect(filterDate.body).toHaveProperty("appointments");
+        expect(filterDate.body.message).toBe("Appointments listed successfully");
+        expect(filterDate.body.appointments.length).toBe(2);
+        expect(filterDate.statusCode).toBe(200);
+
+        const filterAnotherDate = await request(app).get('/appointment?filter=time&value=9');
+
+        expect(filterAnotherDate.body).toHaveProperty("message");
+        expect(filterAnotherDate.body).toHaveProperty("appointments");
+        expect(filterAnotherDate.body.message).toBe("Appointments listed successfully");
+        expect(filterAnotherDate.body.appointments.length).toBe(1);
+        expect(filterAnotherDate.statusCode).toBe(200);
+    });
+});
