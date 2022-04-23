@@ -14,16 +14,17 @@ const registerAppointment = async (req, res) => {
         return res.status(400).json({ message: "No more available appointments for this schedule", error: "time_error" });
     }
 
-    await appointments.push({
+    const newAppointment = {
         id: crypto.randomUUID(),
         name: name,
         birth_date: birth_date,
         date_appointment: date_appointment,
         time_appointment: time_appointment,
         situation: "waiting"
-    });
+    }
 
-    return res.status(201).json({ message: "Appointment registered successfully", appointment: appointments });
+    await appointments.push(newAppointment);
+    return res.status(201).json({ message: "Appointment registered successfully", appointment: newAppointment });
 }
 
 export default registerAppointment;
