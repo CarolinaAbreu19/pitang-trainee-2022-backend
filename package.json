@@ -8,7 +8,8 @@
   "type": "module",
   "scripts": {
     "start": "yarn add express nodemon dotenv date-fns yup cors",
-    "dev": "yarn nodemon src/server.js"
+    "dev": "yarn nodemon src/server.js",
+    "test": "jest"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -17,5 +18,15 @@
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }
