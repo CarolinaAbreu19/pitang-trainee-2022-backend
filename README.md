@@ -71,4 +71,4 @@ take the vaccine, build a page to consult the appointments made per day and hour
 
 ## Author
 
-* Carolina Abreu - [GitHub Profile](https://github.com/CarolinaAbreu19) | [LinkedIn](https://www.linkedin.com/in/ana-carolina-silva-abreu/)
+Carolina Abreu - [GitHub Profile](https://github.com/CarolinaAbreu19) | [LinkedIn](https://www.linkedin.com/in/ana-carolina-silva-abreu/)
