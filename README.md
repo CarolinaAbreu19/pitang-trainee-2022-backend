@@ -2,6 +2,37 @@
 
 ## To run this project
 
+* In the application repository, open the terminal and type the following command:
+
+```
+yarn install
+```
+
+* And then, type this command:
+
+```
+yarn dev
+```
+
+* A message should be displayed indicating which port the server is running on:
+
+```
+Server running on PORT 3333
+```
+## To run the tests
+
+* In the application repository, open the terminal and type the following command:
+
+```
+yarn install
+```
+
+* And then, type this command:
+
+```
+yarn test
+```
+
 ---
 
 ## Description
