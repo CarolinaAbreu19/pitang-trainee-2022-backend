@@ -21,13 +21,7 @@ Server running on PORT 3333
 ```
 ## To run the tests
 
-* In the application repository, open the terminal and type the following command:
-
-```
-yarn install
-```
-
-* And then, type this command:
+* After running the `yarn install` command, you can type the following command:
 
 ```
 yarn test
