@@ -34,6 +34,7 @@ describe('POST /appointment', () => {
         expect(newAppointment.body.appointment).toHaveProperty("time_appointment");
         expect(newAppointment.body.appointment).toHaveProperty("situation");
 
+        expect(newAppointment.body.appointment.id).toBe(1);
         expect(newAppointment.body.appointment.name).toBe("jest test");
         expect(newAppointment.body.appointment.birth_date).toBe("23/04/2022");
         expect(newAppointment.body.appointment.date_appointment).toBe("23/04/2023");
@@ -190,6 +191,7 @@ describe('POST /appointment', () => {
         expect(newAppointment.body.appointment).toHaveProperty("time_appointment");
         expect(newAppointment.body.appointment).toHaveProperty("situation");
 
+        expect(newAppointment.body.appointment.id).toBe(2);
         expect(newAppointment.body.appointment.name).toBe("jest test");
         expect(newAppointment.body.appointment.birth_date).toBe("23/04/2022");
         expect(newAppointment.body.appointment.date_appointment).toBe("23/04/2023");
@@ -251,7 +253,7 @@ describe('GET /appointment', () => {
 });
 
 describe('GET /appointment', () => {
-    test('Filter appointments by date', async () => {
+    test('Filter appointments by time', async () => {
         const filterDate = await request(app).get('/appointment?filter=time&value=8');
 
         expect(filterDate.body).toHaveProperty("message");
@@ -289,5 +291,60 @@ describe('GET /appointment', () => {
         expect(filterDate.body.message).toBe("No results");
         expect(filterDate.body.appointments.length).toBe(0);
         expect(filterDate.statusCode).toBe(200);
+    });
+});
+
+describe('PATCH /appointment', () => {
+    test("Make an appointment. Must return status code 200 and update the 'situation' field ", async () => {
+        const make = await request(app).patch('/appointment/1');
+        expect(make.body).toHaveProperty("message");
+        expect(make.body).toHaveProperty("appointment");
+        expect(make.body.message).toBe("Appointment done");
+        expect(make.body.appointment.id).toBe(1);
+        expect(make.body.appointment.situation).toBe("done");
+        expect(make.statusCode).toBe(200);
+
+        const response = await request(app).get("/appointment");
+        expect(response.body).toHaveProperty("message");
+        expect(response.body).toHaveProperty("appointments");
+        expect(response.body.appointments.length).toBe(3);
+        expect(response.body.appointments[0].id).toBe(1);
+        expect(response.body.appointments[0].situation).toBe("done");
+        expect(response.statusCode).toBe(200);
+    });
+});
+
+describe('PATCH /appointment', () => {
+    test("Trying to make an appointment with an id that doesn't exist. Must return error 404", async () => {
+        const make = await request(app).patch('/appointment/10');
+        expect(make.body).toHaveProperty("message");
+        expect(make.body.message).toBe("Appointment not found");
+        expect(make.statusCode).toBe(404);
+    });
+});
+
+describe('DELETE /appointment', () => {
+    test("Cancel an appointment. Must return status code 200", async () => {
+        const make = await request(app).delete('/appointment/1');
+        expect(make.body).toHaveProperty("message");
+        expect(make.body.message).toBe("Appointment deleted successfully");
+        expect(make.statusCode).toBe(200);
+
+        const response = await request(app).get("/appointment");
+        expect(response.body).toHaveProperty("message");
+        expect(response.body).toHaveProperty("appointments");
+        expect(response.body.appointments.length).toBe(2);
+        expect(response.body.appointments[0].id).toBe(2);
+        expect(response.body.appointments[1].id).toBe(3);
+        expect(response.statusCode).toBe(200);
+    });
+});
+
+describe('DELETE /appointment', () => {
+    test("Trying to cancel an appointment with an id that doesn't exist. Must return error 404", async () => {
+        const make = await request(app).delete('/appointment/10');
+        expect(make.body).toHaveProperty("message");
+        expect(make.body.message).toBe("Appointment not found");
+        expect(make.statusCode).toBe(404);
     });
 });
