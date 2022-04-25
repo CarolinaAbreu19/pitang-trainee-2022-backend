@@ -4,7 +4,7 @@ const makeAppointment = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const appointmentFound = await appointments.find(appointment => appointment.id === id);
+        const appointmentFound = await appointments.find(appointment => appointment.id === parseInt(id));
         if(!appointmentFound) {
             return res.status(404).json({ message: "Appointment not found" });
         }
