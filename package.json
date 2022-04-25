@@ -7,13 +7,28 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "yarn add express nodemon dotenv date-fns",
-    "dev": "yarn nodemon src/server.js"
+    "start": "yarn add express nodemon dotenv date-fns yup cors",
+    "dev": "yarn nodemon src/server.js",
+    "test": "jest"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "date-fns": "^2.28.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }
