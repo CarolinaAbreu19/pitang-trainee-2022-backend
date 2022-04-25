@@ -1,5 +1,7 @@
 import appointments from "../models/appointmentModel.js";
-import crypto from "crypto";
+// import crypto from "crypto";
+
+let newId = 1;
 
 const registerAppointment = async (req, res) => {
     const { name, birth_date, date_appointment, time_appointment } = req.body;
@@ -19,15 +21,16 @@ const registerAppointment = async (req, res) => {
     }
 
     const newAppointment = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
+        id: newId,
         name: name,
         birth_date: birth_date,
         date_appointment: date_appointment,
         time_appointment: time_appointment,
         situation: "waiting"
     }
-
     await appointments.push(newAppointment);
+    newId++;
     return res.status(201).json({ message: "Appointment registered successfully", appointment: newAppointment });
 }
 
