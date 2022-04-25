@@ -1,6 +1,32 @@
-# Backend - Pitang | Program Trainee 2022
+# Back-end - Pitang | Program Trainee 2022
 
 ## To run this project
+
+* In folder `/src/config` copy the `.env.example` file and paste on the root folder of this application
+* In the application repository, open the terminal and type the following command:
+
+```
+yarn install
+```
+
+* And then, type this command:
+
+```
+yarn dev
+```
+
+* A message should be displayed indicating which port the server is running on:
+
+```
+Server running on PORT 3333
+```
+## To run the tests
+
+* After running the `yarn install` command, you can type the following command:
+
+```
+yarn test
+```
 
 ---
 
@@ -31,6 +57,7 @@ take the vaccine, build a page to consult the appointments made per day and hour
 
 * Build an API in Node to receive data from the portal.
 * Use yup to validate data in the API.
+* Use yup for data validation
 * IDE is your choice.
 
 ## Rating criteria
@@ -40,3 +67,9 @@ take the vaccine, build a page to consult the appointments made per day and hour
 * Repository organization
 * Enforcement of all established rules
 * Creating tests
+
+---
+
+## Author
+
+Carolina Abreu - [GitHub Profile](https://github.com/CarolinaAbreu19) | [LinkedIn](https://www.linkedin.com/in/ana-carolina-silva-abreu/)
