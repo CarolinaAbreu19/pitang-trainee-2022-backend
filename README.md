@@ -67,3 +67,9 @@ take the vaccine, build a page to consult the appointments made per day and hour
 * Repository organization
 * Enforcement of all established rules
 * Creating tests
+
+---
+
+## Author
+
+Carolina Abreu - [GitHub Profile](https://github.com/CarolinaAbreu19) | [LinkedIn](https://www.linkedin.com/in/ana-carolina-silva-abreu/)
