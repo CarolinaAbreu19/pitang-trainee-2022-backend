@@ -2,7 +2,6 @@
 
 ## To run this project
 
-* In folder `/src/config` copy the `.env.example` file and paste on the root folder of this application
 * In the application repository, open the terminal and type the following command:
 
 ```
